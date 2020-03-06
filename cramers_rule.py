@@ -4,7 +4,7 @@ col=[]
 for i in range(eqn):
     row=[]
     for j in range(eqn):
-        z="enter"+str(j+1)+" "+"element of"+"equation"+str(i+1)
+        z="enter"+str(j+1)+"element of"+"equation"+str(i+1)
         y=int(input(z))
         row.append(y)
     col.append(row)
@@ -19,18 +19,23 @@ for i in range(eqn):
 b=np.array(sol)
 print(b)
 
-co_matrix=round(np.linalg.det(a))
-det_matrix=[]
-c=a.copy()
-for i in range(eqn):
-    c[:,i]=b
-    print(c)
-    x=np.linalg.det(c)
-    det_matrix.append(x)
-    c=a.copy()
-X=det_matrix/co_matrix
-print(X)
+def cramer(p,q):
+    co_matrix=round(np.linalg.det(p))
+    det_matrix=[]
+    c=p.copy()
+    for i in range(eqn):
+        c[:,i]=q
+        print(c)
+        x=np.linalg.det(c)
+        det_matrix.append(x)
+        c=p.copy()
+        X=det_matrix/co_matrix
+        print(X)
 
+cramer(a,b)
+
+    
+    
     
     
 
